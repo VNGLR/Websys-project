@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+	<head>
+		<title>BookShare</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    	<link rel="stylesheet" type="text/css" href="resources/splash_screen.css"/>
+    	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	</head>
+	<body>
+	<div id = "splash_primary">
+		<div class = "inner" id = "mybooks"> <a class="btn btn-primary" href="#" role="button" id="booksbtn">My Books</a> </div>
+		<!-- <div class = "inner" id = "title"> <p class = "splash_title"> BookShare </p> </div> -->
+		<div class = "inner" id = "signup"><a class="btn btn-primary" href="#" role="button" id="signup">Sign Up or Log In</a> </div>
+	</div>	
+
+	<br/>
+	<br/>
+
+	<div id = "splash_secondary">
+		<div class = "innersecond" id = "title"> <p class = "splash_title"> BookShare </p> </div>
+	</div>
+
+
+	<br/>
+
+	<br/>
+	
+
+	<!-- The form -->
+	<form class="example" action="action_page.php">
+	  <input type="text" class = "round" placeholder="Search Library" name="search">
+	  <button type="submit"><i class="fa fa-search"></i></button>
+	  <br/>
+		<br/>
+		<br/>
+		<form class = "search_params">
+	  		<label class="container">Book Title
+			  <input type="radio" checked="checked" name="radio">
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">ISBN
+			  <input type="radio" name="radio">
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">Author
+			  <input type="radio" name="radio">
+			  <span class="checkmark"></span>
+			</label>
+			<label class="container">Genre
+			  <input type="radio" name="radio">
+			  <span class="checkmark"></span>
+			</label>
+	  	</form>
+	</form> 
+
+
+<!-- 
+	<form class="submission" action="action_page.php">
+  		<input type="text" name="search" class="round" placeholder="Search Library" id = "search_toolbar"/>
+  		<button type="submit"><i class="fa fa-search"></i></button>
+	</form>
+			 
+			 -->
+
+			<!-- <div class = "search_wrapper">
+			    <div class="search">
+
+			      <input type="text" name="search" class="round" placeholder="Search Library" id = "search_toolbar"/>
+			     
+			    </div>
+
+			    <div class = "search">
+			    	<button type="submit"><i class="fa fa-search"></i></button>
+			    </div>
+			</div> -->
+			
+		
+		
+	</body>
+</html>
