@@ -5,6 +5,8 @@
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     	<link rel="stylesheet" type="text/css" href="resources/splash_screen.css"/>
     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    	 <script type="text/javascript" src="home_screen.js"></script>
 	</head>
 	<body>
 	<div id = "splash_primary">
@@ -27,30 +29,31 @@
 	
 
 	<!-- The form -->
-	<form class="example" action="action_page.php">
-	  <input type="text" class = "round" placeholder="Search Library" name="search">
-	  <button type="submit"><i class="fa fa-search"></i></button>
+	<form class="example" method = "post">
+	  <input type="text" class = "round" placeholder="Search Library" name="search" id = "search_input">
+	  <button type="submit" onclick = "retrieve_params(); return false;""><i class="fa fa-search"></i></button>
 	  <br/>
 		<br/>
 		<br/>
-		<form class = "search_params">
+		<form id = "search_topic">
 	  		<label class="container">Book Title
-			  <input type="radio" checked="checked" name="radio">
+			  <input type="radio" checked="checked" name="radio" value = "title">
 			  <span class="checkmark"></span>
 			</label>
 			<label class="container">ISBN
-			  <input type="radio" name="radio">
+			  <input type="radio" name="radio" value = "isbn">
 			  <span class="checkmark"></span>
 			</label>
 			<label class="container">Author
-			  <input type="radio" name="radio">
+			  <input type="radio" name="radio" value = "author">
 			  <span class="checkmark"></span>
 			</label>
 			<label class="container">Genre
-			  <input type="radio" name="radio">
+			  <input type="radio" name="radio" value = "genre">
 			  <span class="checkmark"></span>
 			</label>
-	  	</form>
+		</form>
+	  	
 	</form> 
 
 
