@@ -2,10 +2,12 @@
 
 
 require './config.php';
-$host=$config["DB_HOST"]; 
+$host=DB_SERVER; 
 
-$root=$config["DB_USERNAME"]; 
-$root_password=$config["DB_PASSWORD"]; 
+$root=DB_USERNAME; 
+$root_password=DB_PASSWORD; 
+
+
 
 $results = [];
 $i = 0;
@@ -42,7 +44,7 @@ $db="lab8websys";
 
             $curr_i = 0;
 
-           
+
 
             foreach ($row as $tuple) {
               // print("Found one..");

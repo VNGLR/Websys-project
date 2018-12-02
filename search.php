@@ -6,10 +6,32 @@
 		<title>Search Results</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     	<link rel="stylesheet" type="text/css" href="resources/search.css"/>
+    	<script type="text/javascript" src="search.js"></script>
 	</head>
 	<body>
-		<a class="btn btn-primary" href="#" role="button" id="booksbtn">My Books</a>
-		<a class="btn btn-primary" href="#" role="button" id="signup">Sign Up or Log In</a>
+
+
+		<a class="btn btn-primary" href="#" role="button" id="booksbtn" onclick = "redirect_my_books();">My Books</a>
+		<!-- <a class="btn btn-primary" href="#" role="button" id="signup">Sign Up or Log In</a> -->
+
+		<?php
+			session_start();
+			if(!isset($_SESSION['username'])){
+				echo "<a class='btn btn-primary' href='#'' role='button' id='signup'  onclick = 'redirect_logout();' >Sign Up or Log In</a>";
+			}else{
+				// echo $_SESSION['username'];
+				echo "<a class='btn btn-primary' href='#'' role='button' id='signup'  onclick = 'redirect_login();'>Log Out</a>";
+				
+			}
+
+
+		?>
+
+
+
+
+
+
 		<h1>Search Results</h1>
 
 		<?php 

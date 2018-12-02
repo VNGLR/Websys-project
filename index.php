@@ -10,9 +10,26 @@
 	</head>
 	<body>
 	<div id = "splash_primary">
-		<div class = "inner" id = "mybooks"> <a class="btn btn-primary" href="#" role="button" id="booksbtn">My Books</a> </div>
+		<div class = "inner" id = "mybooks"> <a class="btn btn-primary" href="#" role="button" id="booksbtn" onclick = "redirect_my_books();">My Books</a> </div>
 		<!-- <div class = "inner" id = "title"> <p class = "splash_title"> BookShare </p> </div> -->
-		<div class = "inner" id = "signup"><a class="btn btn-primary" href="#" role="button" id="signup">Sign Up or Log In</a> </div>
+
+		<!-- <div class = "inner" id = "signup"><a class="btn btn-primary" href="#" role="button" id="signup">Sign Up or Log In</a> </div> -->
+		<?php
+			session_start();
+			if(!isset($_SESSION['username'])){
+				$total_line = "<div class = 'inner' id = 'signup'><a class='btn btn-primary' href='#' role='button' id='signup' onclick = ";
+				$total_line = $total_line."'redirect_login();'>";
+
+				$total_line = $total_line."Sign Up or Log In</a> </div>";
+				echo $total_line;
+			}else{
+				// echo $_SESSION['username'];
+				echo "<div class = 'inner' id = 'signup'><a class='btn btn-primary' href='#' role='button' id='signup' onclick = 'redirect_logout();'>Logout</a> </div>";
+				
+			}
+
+
+		?>
 	</div>	
 
 	<br/>
