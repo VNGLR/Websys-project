@@ -65,6 +65,47 @@ th:last-child {
     font-weight: bold;
 }
 
+
+#search_input1{
+  font-size: 20px;
+  width: 300px;
+}
+
+
+#search_input2{
+  font-size: 20px;
+  width: 300px;
+}
+
+
+
+#search_input3{
+  font-size: 20px;
+  width: 300px;
+}
+
+
+
+#search_input4{
+  font-size: 20px;
+  width: 300px;
+}
+
+
+#search_input5{
+  font-size: 20px;
+  width: 300px;
+}
+
+
+
+.input_add_item{
+  font-family: 'Oswald','Roboto', sans-serif;
+  font-size: 30px;
+}
+
+
+
 .close:hover,
 .close:focus {
     color: black;

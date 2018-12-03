@@ -2,8 +2,12 @@
 <html>
 	<head>
 		<title>My Account</title>
+		<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto|Ubuntu|Oswald" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     	<link rel="stylesheet" type="text/css" href="resources/account.css"/>
+    	<link rel="stylesheet" type="text/css" href="resources/splash_screen.css"/>
+    	<link rel="stylesheet" type="text/css" href="resources/search.css"/>
+    	<link rel="stylesheet" type="text/css" href="styles.css"/>
     	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     	<script type="text/javascript" src="useraccount.js">	</script>
     	<script > 
@@ -14,10 +18,17 @@
 				console.log(elem);
 				var title = elem.innerHTML;
 				console.log("TITLE: " + title);
-				var new_owner = document.getElementById("search_input").value;
+				alert(title);
+
+				var search_inp_str = "search_inputt" + id;
+				var search_loc_str = "search_location" + id;
+				var new_owner = document.getElementById(search_inp_str).value;
 				console.log("New owner: " + new_owner);
-				var new_location = document.getElementById("search_location").value;
+				alert(new_owner);
+
+				var new_location = document.getElementById(search_loc_str).value;
 				console.log("New location: " + new_location);
+				alert(new_location);
 				$.ajax({
 		            type: "Post",
 		            url: "transfer_ownership.php",
@@ -25,8 +36,11 @@
 		           
 		            success: function(responseData, status){ //dynamically add buttons and information for each room to DOM
 		                alert("Ownership transferred successfully");
-		                var modal = document.getElementById('myModal');
+
+		                var id_str = 'myModal' + id;
+		                var modal = document.getElementById(id_str);
 		                modal.style.display = "none";
+		                location.reload();
 
 		            }
     			});
@@ -34,6 +48,11 @@
 
 
 			}
+
+
+			// $("#addmaterial").onclick = function(){
+			// 	location.reload();
+			// }
 		
 
 
@@ -125,17 +144,23 @@
 				              		$total_line = "<th>";
 				              		
 				              		if($y == 0){
-				              			$total_line= $total_line."<p id = title".$x.">".$all_qs[$x][$y]."</p><a class='btn btn-primary' href='#' role='button' id='booksbtnanother' onclick = transfer_ownership();> Transfer Ownership </a>";
+				              			$total_line= $total_line."<p id = title".$x.">".$all_qs[$x][$y]."</p><a class='btn btn-primary' href='#' role='button' id='booksbtnanother' onclick = 'transfer_ownership(";
+
+				              			$total_line = $total_line.$x.");'> Transfer Ownership </a>";
 				              			//echo $total_line;
-				              			$total_line = $total_line."<div id='myModal' class='modal'>";
+				              			$total_line = $total_line."<div id='myModal";
+				              			$total_line = $total_line.$x."'";
+				              			$total_line = $total_line." class='modal'>";
 
 													
 										$total_line = $total_line."<div class='modal-content'>";
 										$total_line = $total_line."<span class='close'>&times;</span>";
 										$total_line = $total_line."<p>Lend out book to: </p>";
-									$total_line = $total_line."<input type='text' class = 'round' placeholder='New Borrower' name='search' id='search_input'>";
-										$total_line = $total_line."<input type='text' class = 'round' placeholder='New Location' name='search' id = ";
-										$total_line = $total_line."'search_location'>";
+									$total_line = $total_line."<input type='text' class = 'round search_inp' placeholder='New Borrower' name='search' id='search_inputt";
+										$total_line = $total_line.$x."'>";
+										$total_line = $total_line."<input type='text' class = 'round search_loc' placeholder='New Location' name='search' id = ";
+										$total_line = $total_line."'search_location";
+										$total_line = $total_line.$x."'><br/>";
 										$total_line = $total_line."<a class='btn btn-primary' href='#' role='button' id='booksbtnchange' onclick =  ";
 										$total_line = $total_line."'change_ownership("; 
 
@@ -325,19 +350,23 @@
 			?>
 
 		</table>
+		<br/>
+		<br/>
+		<br/>
 		<div class="share_book">
-				<h3>Share your book </h3>
-						<form action="additem.php" method="post">
-							<p>Title</p>
-							<input  type="text" name="value1"/> 
-							<p>ISBN</p>
-							<input  type="text" name="value2"/> 
-							<p>Author</p>
-							<input  type="text" name="value3"/> 
-							<p>Genre</p>
-							<input  type="text" name="value4"/> 
-							<p>Location</p>
-							<input  type="text" name="value5"/> 
+				<h3 class = "input_add_item">Share your book </h3>
+						<form action="additem.php" method="post" id = "addmaterial">
+							<p class = "input_add_item">Title</p>
+							<!-- <input  type="text" name="value1"/>  -->
+							<input type="text" class = "round" placeholder="Title" name="value1" id = "search_input1">
+							<p class = "input_add_item">ISBN</p>
+							<input type="text" class = "round" placeholder="ISBN" name="value2" id = "search_input2">
+							<p class = "input_add_item">Author</p>
+							<input type="text" class = "round" placeholder="Author" name="value3" id = "search_input3">
+							<p class = "input_add_item">Genre</p>
+							<input type="text" class = "round" placeholder="Genre" name="value4" id = "search_input4">
+							<p class = "input_add_item">Location</p>
+							<input type="text" class = "round" placeholder="Location" name="value5" id = "search_input5">
 							<br>
 							<br>
 							<input class="btn2"  type="submit" />

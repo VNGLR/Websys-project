@@ -40,8 +40,8 @@
 		     	<tr>
 				<th>Book Title</th>
 				<th>ISBN</th>
-				<th>Who Has It</th>
-				<th>Location</th>
+				<th>Contact Information</th>
+				<th>Last Exchanged At:</th>
 			   </tr>
 			";
 
@@ -58,7 +58,13 @@
 		  	}
 		  	
 
+
+
+		  	if($curr_inner_tuple == 2){
+		  		$total_line = $total_line."<th>".$value."(@rpi.edu)</th>";
+		  	}else{
 		  		$total_line = $total_line."<th>".$value."</th>";
+		  	}
 		  		
 		  		// echo "<th>";
 
@@ -67,6 +73,8 @@
 		  		// echo "</th>";
 		  		
 		  	++$curr_inner_tuple;
+
+
 		  
 		  	if($curr_inner_tuple == 4){
 		  		echo $total_line;
