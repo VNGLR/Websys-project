@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Dec 03, 2018 at 01:38 PM
+-- Generation Time: Dec 02, 2018 at 07:38 PM
 -- Server version: 5.7.22-0ubuntu0.17.10.1
 -- PHP Version: 7.1.17-0ubuntu0.17.10.1
 
@@ -42,12 +42,9 @@ CREATE TABLE `books` (
 --
 
 INSERT INTO `books` (`id`, `title`, `isbn`, `owner`, `current`, `author`, `genre`, `location`) VALUES
-(1, 'To Kill a Mockingbird', 'IS24332', 'maa4', 'another', 'Harper Lee', 'fiction', 'DCC 319'),
-(2, 'Rita Hayworth and Shawshank Redemption', 'ISCsad2', 'sds', 'toniu', 'Stephen King', 'fiction', 'DCC 322'),
-(3, 'Dreams from My Father', 'ISfsds', 'toniu', 'sds', 'Barack Obama', 'non-fiction', 'WestHall'),
-(4, 'Looking for Alaska', 'AISDAS', 'toniu', 'toniu', 'John Green', 'fiction', 'asdasd'),
-(5, 'Odyssey', 'IS232323', 'toniu', 'another', 'Homer', 'Epic poetry', 'AE 218'),
-(6, 'Macbeth', 'ISBNasdasd', 'toniu', 'toniu', 'Shakespeare', 'Tragedy', '');
+(1, 'To Kill a Mockingbird', 'IS24332', 'maa4', 'toniu', 'Harper Lee', 'fiction', 'AE218'),
+(2, 'Rita Hayworth and Shawshank Redemption', 'ISCsad2', 'sds', 'toniu', 'Stephen King', 'fiction', 'Sage2213'),
+(3, 'Dreams from My Father', 'ISfsds', 'toniu', 'sds', 'Barack Obama', 'non-fiction', 'WestHall');
 
 -- --------------------------------------------------------
 
@@ -58,24 +55,23 @@ INSERT INTO `books` (`id`, `title`, `isbn`, `owner`, `current`, `author`, `genre
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `email` varchar(20) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `password` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `username`, `password`, `email`) VALUES
-(1, 'manohr', '', 'manohr@rpi.edu'),
-(2, 'maa5', '', 'maa5@rpi.edu'),
-(3, 'serebn', '', 'serebn@rpi.edu'),
-(4, 'sample', '7b376e0e2f31a7c5953d2ce96ff33218f3b0e92e6367ac6bc1981df627c3f7b0', 'sample@rpi.edu'),
-(6, 'sds', '08f62907a455dade60cf0a10a794c92c1e6a94d970b3df56aae6de80486275f0', 'sds@rpi.edu'),
-(7, 'another', '$2y$10$sBcQs2gNf1fNKZLud0sRR.9GER4hxaO32sBJyqNyPXe6zcfRDBqPu', 'another@rpi.edu'),
-(8, 'manohrm', '$2y$10$nqNsKvKaBSf1hY90Vfn73e3BGtxQu71XIjybzVkSPzqoLgnrQd82C', 'manohrm@rpi.edu'),
-(9, 'maa4', '$2y$10$zdruopTjIVQZyWQRCLd5yeCb8qqoLzRfuqGWTSYGEBkxcCjf8cGyu', 'maa4@rpi.edu'),
-(10, 'toniu', '$2y$10$GUXn82Z9I5jy/jG1zNO1Dub2fj6jh1nzUv4xIs.VPeBdjq.Y5eMQ.', 'toniu@rpi.edu');
+INSERT INTO `users` (`id`, `username`, `password`) VALUES
+(1, 'manohr', ''),
+(2, 'maa5', ''),
+(3, 'serebn', ''),
+(4, 'sample', '7b376e0e2f31a7c5953d2ce96ff33218f3b0e92e6367ac6bc1981df627c3f7b0'),
+(6, 'sds', '08f62907a455dade60cf0a10a794c92c1e6a94d970b3df56aae6de80486275f0'),
+(7, 'another', '$2y$10$sBcQs2gNf1fNKZLud0sRR.9GER4hxaO32sBJyqNyPXe6zcfRDBqPu'),
+(8, 'manohrm', '$2y$10$nqNsKvKaBSf1hY90Vfn73e3BGtxQu71XIjybzVkSPzqoLgnrQd82C'),
+(9, 'maa4', '$2y$10$zdruopTjIVQZyWQRCLd5yeCb8qqoLzRfuqGWTSYGEBkxcCjf8cGyu'),
+(10, 'toniu', '$2y$10$GUXn82Z9I5jy/jG1zNO1Dub2fj6jh1nzUv4xIs.VPeBdjq.Y5eMQ.');
 
 --
 -- Indexes for dumped tables
@@ -104,7 +100,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `books`
 --
 ALTER TABLE `books`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `users`
 --

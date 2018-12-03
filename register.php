@@ -3,6 +3,7 @@
 require_once 'config.php';
 
 // Define variables and initialize with empty values
+$contact="";
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 
@@ -11,7 +12,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
     // Validate username
     if(empty(trim($_POST["username"]))){
-        $username_err = "Please enter a username.";
+        $username_err = "Please enter your RCS ID.";
     } else{
         // Prepare a select statement
         $sql = "SELECT id FROM users WHERE username = ?";
@@ -106,13 +107,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
-<div class="logo"> BOOK SHARE </div>
+<div class="logo"> BOOK WORMS </div>
 <div class="wrapper">
     <h1>Sign Up</h1>
     <p>Please fill this form to create an account.</p>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>Username:<sup>*</sup></label>
+            <label>RCS ID:<sup>*</sup></label>
             <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
             <span class="help-block"><?php echo $username_err; ?></span>
         </div>

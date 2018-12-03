@@ -1,8 +1,5 @@
-
-
-
 body{
-	background-image: url("bookshelf.jpg");
+	background-image: url("picture.gif");
 }
 
 .logo{
@@ -46,8 +43,7 @@ body{
 }
 
 .btn2 {
-	font-size: 20px;
-	height: 40px;
+	font-size: 0.8em;
 	color: white;
 	width:20%;
 	background-color:  #258FFF;
