@@ -106,13 +106,13 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
-<div class="logo"> BOOK SHARE </div>
+<div class="logo"> BOOK WORMS </div>
 <div class="wrapper">
     <h1>Sign Up</h1>
     <p>Please fill this form to create an account.</p>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
         <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-            <label>Username:<sup>*</sup></label>
+            <label>RCS ID:<sup>*</sup></label>
             <input type="text" name="username"class="form-control" value="<?php echo $username; ?>">
             <span class="help-block"><?php echo $username_err; ?></span>
         </div>

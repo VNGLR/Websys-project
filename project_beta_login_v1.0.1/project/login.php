@@ -50,15 +50,15 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             save the username to the session */
                             session_start();
                             $_SESSION['username'] = $username;
-                            header("location: index.php");
+                            header("location: welcome.php");
                         } else{
                             // Display an error message if password is not valid
-                            $password_err = 'The account/password you entered was not valid.';
+                            $password_err = 'The password you entered was not valid.';
                         }
                     }
                 } else{
                     // Display an error message if username doesn't exist
-                    $username_err = 'No account/password found with that username.';
+                    $username_err = 'No account found with that username.';
                 }
             } else{
                 echo "Oops! Something went wrong. Please try again later.";
@@ -87,9 +87,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
     </style>
 </head>
 <body>
-<div class="logo"> BOOK WORMS </div>
+<div class="logo"> BOOK SHARE </div>
 <div class="wrapper">
-    <!-- below code reads in the username and password and then checks to see if it is legit in the above php -->
     <h1>Login</h1>
     <p>Please fill in your credentials to login.</p>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">

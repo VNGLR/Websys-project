@@ -2,7 +2,7 @@
 
 
 body{
-	background-image: url("bookshelf.jpg");
+	background-image: url("bookshelfmodified.jpg");
 }
 
 .logo{
@@ -12,7 +12,7 @@ body{
 	width: 100%;
 	height:200px;
 	font-size: 10em;
-	color: white;
+	color: black;
 	font-family: 'Fredericka the Great', cursive;
 }
 
@@ -33,6 +33,7 @@ body{
 .form-group{
 	font-size: 1.2em;
 	line-height: 200%;
+	font-family: 'Oswald', sans-serif;
 }
 
 .form-control{
@@ -55,4 +56,18 @@ body{
 }
 
 
+
+.everything{
+  font-family: 'Oswald', sans-serif;
+  margin-top: 100px;
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: white;
+  text-align: center;
+  min-height: 300px;
+  border-color: #258FFF;
+  border-style: solid;
+  border-width: 5px;
+  border-radius: 20px;
+}
 

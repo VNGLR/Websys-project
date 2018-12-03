@@ -9,6 +9,29 @@
     	<link rel="stylesheet" type="text/css" href="resources/search.css"/>
     	<link rel="stylesheet" type="text/css" href="styles.css"/>
     	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    	<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Fredericka+the+Great">
+
+
+    	<style>
+    		body{
+    			background-image: url("bookshelfmodified.jpg");
+
+
+    		}
+
+
+    		#currently_borrowed_b{
+    			display: flex;
+    		}
+
+    		#owned_books_b{
+    			display: flex;
+    		}
+
+    		.logo{
+    			color: black;
+    		}
+    	</style>
     	<script type="text/javascript" src="useraccount.js">	</script>
     	<script > 
     	
@@ -71,6 +94,8 @@
 	</head>
 	<body>
 		<a class="btn btn-primary" href="#" role="button" id="booksbtn" onclick = "search_for_books();">Search</a>
+		<div class =  "logo"> BOOK WORMS </div>
+		<div class = "everything" id = "currently_borrowed_b">
 		<h1 class="borrowed">Currently Borrowed</h1>
 		<table id = "mybooks">
 			<tr>
@@ -227,7 +252,8 @@
 				    }
 			?>
 		</table>
-
+		</div>
+		<div class = "everything" id = "owned_books_b">
 		<h1 class="owned">Your Owned Books</h1>
 		<table>
 			<tr>
@@ -361,9 +387,9 @@
 			?>
 
 		</table>
-		<br/>
-		<br/>
-		<br/>
+		
+		</div>
+
 		<div class="share_book">
 				<h3 class = "input_add_item">Share your book </h3>
 						<form action="additem.php" method="post" id = "addmaterial">

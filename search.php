@@ -6,6 +6,18 @@
 		<title>Search Results</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     	<link rel="stylesheet" type="text/css" href="resources/search.css"/>
+    	<style>
+			body{
+				background-color:  #e5e8e8;
+				background-image: url("bookshelfmodified.jpg");
+			}
+
+			#every_search_result{
+				display: flex;
+			}
+    	</style>
+    	<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Fredericka+the+Great">
+    	<!-- <link href="" rel="stylesheet”> -->
     	<script type="text/javascript" src="search.js"></script>
 	</head>
 	<body>
@@ -23,7 +35,8 @@
 			}
 
 		?>
-
+		<div class = "logo"> BOOK WORMS</div>
+		<div class = "everything" id = "every_search_result">
 		<h1>Search Results</h1>
 
 		<?php 
@@ -81,6 +94,7 @@
 		  echo "</table>";//finish outputting					
 
 	  ?>
+	  </div>
 		
 	</body>
 </html>
