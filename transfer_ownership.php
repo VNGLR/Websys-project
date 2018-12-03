@@ -31,28 +31,54 @@ session_start();
 
 
             $success = $stmt->execute();
-            echo $success;
 
 
-            //prepare change in database
-            $stmt = $dbexec->prepare(" UPDATE books SET location = :location WHERE title =
-              :title;
-            ") or die(print_r($dbh->errorInfo(), true));
-            $stmt->bindParam('location', $new_location, PDO::PARAM_STR);
-            $stmt->bindParam('title', $title, PDO::PARAM_STR);
+            $count = $stmt->rowCount();
 
-            $stmt->execute();//ececute update in location
+            if($count =='0'){
+                $all_qs = ["Failure"];//all queries
 
 
-            $row = $stmt->fetchALL();
+                $final_arrs["Results"] = $all_qs;
+                echo json_encode($final_arrs);//output results
+            }
+            else{
+                
+            
+              // echo $success;
 
-            $curr_i = 0;
 
-            $all_qs = [];//all queries
+              //prepare change in database
+              $stmt = $dbexec->prepare(" UPDATE books SET location = :location WHERE title =
+                :title;
+              ") or die(print_r($dbh->errorInfo(), true));
+              $stmt->bindParam('location', $new_location, PDO::PARAM_STR);
+              $stmt->bindParam('title', $title, PDO::PARAM_STR);
+
+              $stmt->execute();//ececute update in location
 
 
-             $final_arrs["Results"] = $all_qs;
-            echo json_encode($final_arrs);//output results
+              // $row = $stmt->fetchALL();
+
+              $count = $stmt->rowCount();
+
+              if($count =='0'){
+                  $all_qs = ["Failure"];//all queries
+
+
+                  $final_arrs["Results"] = $all_qs;
+                  echo json_encode($final_arrs);//output results
+              }else{
+
+                $curr_i = 0;
+
+                $all_qs = [];//all queries
+
+
+                 $final_arrs["Results"] = $all_qs;
+                echo json_encode($final_arrs);//output results
+              }
+            }
           }else{
           	 $final_arrs["Results"] = [];
           	 echo json_encode($final_arrs);//output results

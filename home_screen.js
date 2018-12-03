@@ -23,6 +23,10 @@ function retrieve_params(){
 	//what is being searched
 	var query_type = $('input[name=radio]:checked').val();
 	var query_param = $('#search_input').val();
+  if(query_param === ""){
+    alert("Invalid input.");
+    return;
+  }
 	//A POST request is sent to the
 	//install.php file.
 	$.ajax({

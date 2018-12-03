@@ -18,29 +18,40 @@
 				console.log(elem);
 				var title = elem.innerHTML;
 				console.log("TITLE: " + title);
-				alert(title);
+				// alert(title);
 
 				var search_inp_str = "search_inputt" + id;
 				var search_loc_str = "search_location" + id;
 				var new_owner = document.getElementById(search_inp_str).value;
 				console.log("New owner: " + new_owner);
-				alert(new_owner);
+				// alert(new_owner);
 
 				var new_location = document.getElementById(search_loc_str).value;
 				console.log("New location: " + new_location);
-				alert(new_location);
+				// alert(new_location);
 				$.ajax({
 		            type: "Post",
 		            url: "transfer_ownership.php",
 		            data: {"title": title, "new_owner": new_owner, "new_location": new_location},
-		           
+		           	dataType: "json",
 		            success: function(responseData, status){ //dynamically add buttons and information for each room to DOM
-		                alert("Ownership transferred successfully");
+		            	// console.log(responseData[0]);
+		            	if(responseData["Results"][0] === "Failure"){
+		            		alert("Invalid borrower");
 
-		                var id_str = 'myModal' + id;
-		                var modal = document.getElementById(id_str);
-		                modal.style.display = "none";
-		                location.reload();
+			                var id_str = 'myModal' + id;
+			                var modal = document.getElementById(id_str);
+			                modal.style.display = "none";
+			                location.reload();
+		            	}else{
+			                alert("Ownership transferred successfully");
+
+
+			                var id_str = 'myModal' + id;
+			                var modal = document.getElementById(id_str);
+			                modal.style.display = "none";
+			                location.reload();
+		            	}
 
 		            }
     			});
