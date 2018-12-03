@@ -1,7 +1,7 @@
 <?php
 
 define('DB_USERNAME', 'root');
-define('DB_PASSWORD', '');
+define('DB_PASSWORD', 'cestLafin1');
 define('DB_NAME', 'session_example');
 define('DB_SERVER', 'localhost');
 
