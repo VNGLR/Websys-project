@@ -3,7 +3,7 @@
 
 
 function search_for_books(){
-	document.location.href = "http://localhost/BookShare/index.php";
+	document.location.href = "index.php";
 }
 
 function transfer_ownership(){

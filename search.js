@@ -1,13 +1,13 @@
 function redirect_login(){
 
-	document.location.href = "http://localhost/BookShare/login.php";
+	document.location.href = "login.php";
 }
 
 
 function redirect_logout(){
-	document.location.href = "http://localhost/BookShare/logout.php";
+	document.location.href = "logout.php";
 }
 
 function redirect_my_books(){
-	document.location.href = "http://localhost/BookShare/useraccount.php";
+	document.location.href = "useraccount.php";
 }
