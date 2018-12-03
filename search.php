@@ -12,31 +12,23 @@
 
 
 		<a class="btn btn-primary" href="#" role="button" id="booksbtn" onclick = "redirect_my_books();">My Books</a>
-		<!-- <a class="btn btn-primary" href="#" role="button" id="signup">Sign Up or Log In</a> -->
 
 		<?php
-			session_start();
+			session_start();//display login/signup or logout depending on wether the user is logged in now or not
 			if(!isset($_SESSION['username'])){
 				echo "<a class='btn btn-primary' href='#'' role='button' id='signup'  onclick = 'redirect_logout();' >Sign Up or Log In</a>";
 			}else{
-				// echo $_SESSION['username'];
 				echo "<a class='btn btn-primary' href='#'' role='button' id='signup'  onclick = 'redirect_login();'>Log Out</a>";
 				
 			}
 
-
 		?>
-
-
-
-
-
 
 		<h1>Search Results</h1>
 
 		<?php 
-
-		  echo "<table>
+			//top row of table 
+		  echo "<table> 
 		     	<tr>
 				<th>Book Title</th>
 				<th>ISBN</th>
@@ -50,13 +42,12 @@
           // $arr = $_GET["Results"];
 		  $curr_inner_tuple = 0;
 		  $total_line = "";
-		  foreach ($_GET as $key => $value) { 
+		  foreach ($_GET as $key => $value) { //build the search results
 		  	
 
 		  	if($curr_inner_tuple == 0){
-		  		echo "<tr>";
+		  		echo "<tr>";//begin row
 		  	}
-		  	
 
 
 
@@ -64,19 +55,20 @@
 		  		$total_line = $total_line."<th>".$value."(@rpi.edu)</th>";
 		  	}else{
 		  		$total_line = $total_line."<th>".$value."</th>";
+
 		  	}
 		  		
 		  		// echo "<th>";
 
 		  		// echo $value;
 
-		  		// echo "</th>";
+
 		  		
 		  	++$curr_inner_tuple;
 
 
 		  
-		  	if($curr_inner_tuple == 4){
+		  	if($curr_inner_tuple == 4){//row built
 		  		echo $total_line;
 		  		$total_line = "";
 		  		echo "</tr>";
@@ -86,14 +78,7 @@
 		  	
 		  }
 
-
-
-
-		  echo "</table>";
-
-
-
-					
+		  echo "</table>";//finish outputting					
 
 	  ?>
 		

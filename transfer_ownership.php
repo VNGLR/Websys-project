@@ -9,13 +9,8 @@ $root_password=DB_PASSWORD;
 
 session_start();
 
-
-// $results = [];
-// $i = 0;
-// $db="lab8websys"; 
-
     try {
-        // $final_arrs = {};
+        //is user logged in?
         if(isset($_SESSION["username"] ) && isset($_POST["new_owner"]) ){
 
 
@@ -28,8 +23,6 @@ session_start();
           $query_string = '%'.$query_string.'%';
           $dbexec = new PDO('mysql:host=localhost;dbname=session_example', $root, $root_password);
 
-            
-          
             $stmt = $dbexec->prepare(" UPDATE books SET current = :curr WHERE title =
               :title;
             ") or die(print_r($dbh->errorInfo(), true));
@@ -41,42 +34,29 @@ session_start();
             echo $success;
 
 
-
+            //prepare change in database
             $stmt = $dbexec->prepare(" UPDATE books SET location = :location WHERE title =
               :title;
             ") or die(print_r($dbh->errorInfo(), true));
             $stmt->bindParam('location', $new_location, PDO::PARAM_STR);
             $stmt->bindParam('title', $title, PDO::PARAM_STR);
 
-
-            $stmt->execute();
-
-
+            $stmt->execute();//ececute update in location
 
 
             $row = $stmt->fetchALL();
 
             $curr_i = 0;
 
-            $all_qs = [];
-
-           
+            $all_qs = [];//all queries
 
 
              $final_arrs["Results"] = $all_qs;
-            echo json_encode($final_arrs);
+            echo json_encode($final_arrs);//output results
           }else{
           	 $final_arrs["Results"] = [];
-          	 echo json_encode($final_arrs);
+          	 echo json_encode($final_arrs);//output results
           }
-
-
-
-          
-
-       
-       
-      
 
 
     } catch (PDOException $e) {
