@@ -1,11 +1,13 @@
-<?php ?>
+<?php 
+session_start();
+?>
 
 <!doctype html>
 <html>
 	<head>
 		<title>Search Results</title>
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    	<link rel="stylesheet" type="text/css" href="resources/search.css"/>
+    	<link rel="stylesheet" type="text/css" href="search.css"/>
     	<style>
 			body{
 				background-color:  #e5e8e8;
@@ -26,7 +28,7 @@
 		<a class="btn btn-primary" href="#" role="button" id="booksbtn" onclick = "redirect_my_books();">My Books</a>
 
 		<?php
-			session_start();//display login/signup or logout depending on wether the user is logged in now or not
+			//session_start();//display login/signup or logout depending on wether the user is logged in now or not
 			if(!isset($_SESSION['username'])){
 				echo "<a class='btn btn-primary' href='#'' role='button' id='signup'  onclick = 'redirect_logout();' >Sign Up or Log In</a>";
 			}else{

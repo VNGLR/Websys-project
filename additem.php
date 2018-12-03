@@ -1,9 +1,9 @@
 <?php
+session_start();
 echo " Thank you! Your book was added!";
 echo "<br><a href='useraccount.php'>Go back</a>";
 //defenition of user,db etc.
 
-session_start();
 $u = $_SESSION['username'];
 $v1=$_POST["value1"];
 $v2=$_POST["value2"];

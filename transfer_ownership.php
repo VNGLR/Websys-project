@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 
 require './config.php';
 $host=DB_SERVER; 
@@ -7,7 +7,6 @@ $host=DB_SERVER;
 $root=DB_USERNAME; 
 $root_password=DB_PASSWORD; 
 
-session_start();
 
     try {
         //is user logged in?

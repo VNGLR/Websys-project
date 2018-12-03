@@ -1,14 +1,16 @@
+
+
 <!doctype html>
 <html>
 	<head>
 		<title>My Account</title>
 		<link href="https://fonts.googleapis.com/css?family=Playfair+Display|Roboto|Ubuntu|Oswald" rel="stylesheet">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    	<link rel="stylesheet" type="text/css" href="resources/account.css"/>
-    	<link rel="stylesheet" type="text/css" href="resources/splash_screen.css"/>
-    	<link rel="stylesheet" type="text/css" href="resources/search.css"/>
+    	<link rel="stylesheet" type="text/css" href="account.css"/>
+    	<link rel="stylesheet" type="text/css" href="splash_screen.css"/>
+    	<link rel="stylesheet" type="text/css" href="search.css"/>
     	<link rel="stylesheet" type="text/css" href="styles.css"/>
-    	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     	<link rel = "stylesheet" href = "https://fonts.googleapis.com/css?family=Fredericka+the+Great">
 
 
@@ -106,6 +108,7 @@
 			</tr>
 
 			<?php
+			error_reporting(E_ERROR | E_PARSE);
 
 
 				require './config.php';
@@ -114,7 +117,7 @@
 				$root=DB_USERNAME; 
 				$root_password=DB_PASSWORD; 
 
-				session_start();
+				//session_start();
 
 
 				$results = [];
@@ -263,6 +266,7 @@
 			</tr>
 
 			<?php
+			error_reporting(E_ERROR | E_PARSE);
 
 
 				require './config.php';
