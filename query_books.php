@@ -16,6 +16,7 @@ $db="lab8websys";
     try {
 
         if(isset($_POST['param_type'] ) && isset($_POST['query_string'])){
+          //create PD)
           $param_type = $_POST['param_type'];
           $query_string = $_POST['query_string'];
           $dbh = new PDO("mysql:host=$host", $root, $root_password);
@@ -23,45 +24,34 @@ $db="lab8websys";
           $query_string = '%'.$query_string.'%';
           $dbexec = new PDO('mysql:host=localhost;dbname=session_example', $root, $root_password);
 
+          //if searching for title
           if($param_type == "title"){
-            // print("Hello");
             $all_qs = [];
             $curr_i = 0;
 
-               
-
-
-
-
-            // print($query_string);
           //insert tuples into courses
+            //prepare search
             $stmt = $dbexec->prepare(" SELECT * FROM books WHERE title LIKE 
               :title ;
             ") or die(print_r($dbh->errorInfo(), true));
             $stmt->bindParam('title', $query_string, PDO::PARAM_STR);
-            $stmt->execute();
+            $stmt->execute(); //execute search
             $row = $stmt->fetchALL();
 
             $curr_i = 0;
 
 
-
+            //for each result build output 
             foreach ($row as $tuple) {
-              // print("Found one..");
-
-
-
-              $curr_row_arr = [];
+              $curr_row_arr = [];//will temporary hold search results
             
               
-              $curr_row_arr[0] = $tuple[1];
-              $curr_row_arr[1] = $tuple[2];
-              $curr_row_arr[2] = $tuple[4];
-              $curr_row_arr[3] = $tuple[7];
+              $curr_row_arr[0] = $tuple[1];//title
+              $curr_row_arr[1] = $tuple[2];//isbn
+              $curr_row_arr[2] = $tuple[4];//borrowed from
+              $curr_row_arr[3] = $tuple[7];//owner
                 
-
-
-              $all_qs[$curr_i] = $curr_row_arr;  
+              $all_qs[$curr_i] = $curr_row_arr;  //move from termporary array to output array
 
               $curr_i++;
               
@@ -69,13 +59,12 @@ $db="lab8websys";
             }
 
 
-
              $final_arrs["Results"] = $all_qs;
-          echo json_encode($final_arrs);
+          echo json_encode($final_arrs);//output search
           }
 
-          else if($param_type == "isbn"){
-
+          else if($param_type == "isbn"){//search for isbn
+            //build and make query
            $stmt = $dbexec->prepare(" SELECT * FROM books WHERE isbn LIKE
               :isbn;
             ") or die(print_r($dbh->errorInfo(), true));
@@ -87,35 +76,26 @@ $db="lab8websys";
             $all_qs = [];
 
             foreach ($row as $tuple) {
-              // print("Found one..");
-
-
-
-              $curr_row_arr = [];
+              $curr_row_arr = [];//will temporary hold search results
             
               
-              $curr_row_arr[0] = $tuple[1];
-              $curr_row_arr[1] = $tuple[2];
-              $curr_row_arr[2] = $tuple[4];
-              $curr_row_arr[3] = $tuple[7];
+              $curr_row_arr[0] = $tuple[1];//title
+              $curr_row_arr[1] = $tuple[2];//isbn
+              $curr_row_arr[2] = $tuple[4];//borrowed from
+              $curr_row_arr[3] = $tuple[7];//owner
                 
-
-
-              $all_qs[$curr_i] = $curr_row_arr;  
+              $all_qs[$curr_i] = $curr_row_arr;  //move from termporary array to output array
 
               $curr_i++;
-              
-              
+               
             }
 
-
-
-
              $final_arrs["Results"] = $all_qs;
-          echo json_encode($final_arrs);
+          echo json_encode($final_arrs);//output search
           }
 
-          else if($param_type == "author"){
+          else if($param_type == "author"){//search by author
+            //build and make query
              $stmt = $dbexec->prepare(" SELECT * FROM books WHERE author LIKE
               :author;
             ") or die(print_r($dbh->errorInfo(), true));
@@ -125,38 +105,27 @@ $db="lab8websys";
 
             $curr_i = 0;
 
-            $all_qs = [];
+            $all_qs = [];//final output
 
             foreach ($row as $tuple) {
-              // print("Found one..");
-
-
-
-              $curr_row_arr = [];
-            
+              $curr_row_arr = [];//temporary output
               
-              $curr_row_arr[0] = $tuple[1];
-              $curr_row_arr[1] = $tuple[2];
-              $curr_row_arr[2] = $tuple[4];
-              $curr_row_arr[3] = $tuple[7];
+              $curr_row_arr[0] = $tuple[1];//title
+              $curr_row_arr[1] = $tuple[2];//isbn
+              $curr_row_arr[2] = $tuple[4];//borrowed from
+              $curr_row_arr[3] = $tuple[7];//owner
                 
 
 
-              $all_qs[$curr_i] = $curr_row_arr;  
+              $all_qs[$curr_i] = $curr_row_arr; //build final results array
 
               $curr_i++;
-              
-              
             }
 
-
-
-
-
              $final_arrs["Results"] = $all_qs;
-          echo json_encode($final_arrs);
+          echo json_encode($final_arrs);//output final results
           }
-          else if($param_type == "genre"){
+          else if($param_type == "genre"){//genre search
               $stmt = $dbexec->prepare(" SELECT * FROM books WHERE genre LIKE
               :genre;
             ") or die(print_r($dbh->errorInfo(), true));
@@ -166,61 +135,28 @@ $db="lab8websys";
 
             $curr_i = 0;
 
-            $all_qs = [];
+            $all_qs = [];//final output
 
             foreach ($row as $tuple) {
-              // print("Found one..");
 
-
-
-              $curr_row_arr = [];
+              $curr_row_arr = [];//used to build final output
             
-              
-              $curr_row_arr[0] = $tuple[1];
-              $curr_row_arr[1] = $tuple[2];
-              $curr_row_arr[2] = $tuple[4];
-              $curr_row_arr[3] = $tuple[7];
+              $curr_row_arr[0] = $tuple[1];//title
+              $curr_row_arr[1] = $tuple[2];//isbn
+              $curr_row_arr[2] = $tuple[4];//borrowed from
+              $curr_row_arr[3] = $tuple[7];//owner
                 
 
 
               $all_qs[$curr_i] = $curr_row_arr;  
 
               $curr_i++;
-              
-              
+               
             }
 
-
-
              $final_arrs["Results"] = $all_qs;
-          echo json_encode($final_arrs);
+          echo json_encode($final_arrs);//output results
           }
-
-
-
-          
-
-         //  //insert tuples into grades.
-         //  $row = $dbexec->query("INSERT INTO `grades` (`id`, `crn`, `rin`, `grade`) VALUES
-         //        (1, 10432, 302033000, 94),
-         //        (2, 10432, 637378889, 93),
-         //        (3, 10432, 661399222, 97),
-         //        (4, 34333, 661399222, 89),
-         //        (5, 34333, 302033000, 93),
-         //        (6, 34333, 637378889, 84),
-         //        (7, 44440, 612333223, 91),
-         //        (8, 44440, 637378889, 88),
-         //        (9, 44440, 302033000, 95),
-         //        (10, 87329, 612333223, 92);") or die(print_r($dbh->errorInfo(), true));
-       
-         
-
-         // //insert tuples into students
-         //  $row = $dbexec->query("INSERT INTO `students` (`rin`, `rcsID`, `f_name`, `l_name`, `alias`, `phone`, `street`, `city`, `state`, `zip`) VALUES
-         //  (302033000, 'podwe3', 'Manohar', 'RTL', 'R', 574321938, 'Pleasant Drive', 'Mahwah', 'NJ', '34223'),
-         //  (612333223, 'ddjsn', 'John', 'Smith', 'J', 33333333, 'Troy Street', 'Troy', 'NY', '12180'),
-         //  (637378889, 'ddw22', 'John', 'Glenn', 'JXSDO', 3922300, 'Wolfer Road', 'Albany', 'NY', '12183'),
-         //  (661399222, 'cmawe5', 'Ben', 'Shapiro', 'M', 483070232, 'Wacker Dr', 'Chicago', 'IL', '60604');") or die(print_r($dbh->errorInfo(), true));
        
       }
 

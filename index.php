@@ -10,20 +10,20 @@
 	</head>
 	<body>
 	<div id = "splash_primary">
+		<!-- if below button is clicked, run js that will redirect to user_account.php-->
 		<div class = "inner" id = "mybooks"> <a class="btn btn-primary" href="#" role="button" id="booksbtn" onclick = "redirect_my_books();">My Books</a> </div>
-		<!-- <div class = "inner" id = "title"> <p class = "splash_title"> BookShare </p> </div> -->
 
-		<!-- <div class = "inner" id = "signup"><a class="btn btn-primary" href="#" role="button" id="signup">Sign Up or Log In</a> </div> -->
 		<?php
 			session_start();
+			//if not logged in, top right button will be login/signup
 			if(!isset($_SESSION['username'])){
 				$total_line = "<div class = 'inner' id = 'signup'><a class='btn btn-primary' href='#' role='button' id='signup' onclick = ";
 				$total_line = $total_line."'redirect_login();'>";
 
 				$total_line = $total_line."Sign Up or Log In</a> </div>";
 				echo $total_line;
-			}else{
-				// echo $_SESSION['username'];
+			}else{ //else logout button avaliable
+				
 				echo "<div class = 'inner' id = 'signup'><a class='btn btn-primary' href='#' role='button' id='signup' onclick = 'redirect_logout();'>Logout</a> </div>";
 				
 			}
@@ -39,13 +39,14 @@
 		<div class = "innersecond" id = "title"> <p class = "splash_title"> BookShare </p> </div>
 	</div>
 
-
 	<br/>
 
 	<br/>
 	
 
-	<!-- The form -->
+	<!-- The form 
+	four radial buttons to select search mode and text box to take in what is being searched-->
+
 	<form class="example" method = "post">
 	  <input type="text" class = "round" placeholder="Search Library" name="search" id = "search_input">
 	  <button type="submit" onclick = "retrieve_params(); return false;""><i class="fa fa-search"></i></button>

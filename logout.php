@@ -8,6 +8,6 @@ $_SESSION = array();
 // Destroy the session.
 session_destroy();
 
-header("location: index.php");
+header("location: index.php"); //return to homepage
 
 echo 'You have logged out successfully<br><a href="welcome.php">welcome</a>';
