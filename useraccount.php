@@ -274,5 +274,25 @@
 			?>
 
 		</table>
-	</body>
+		<div class="share_book">
+				<h3>Share your book </h3>
+						<form action="additem.php" method="post">
+							<p>Title</p>
+							<input  type="text" name="value1"/> 
+							<p>ISBN</p>
+							<input  type="text" name="value2"/> 
+							<p>Author</p>
+							<input  type="text" name="value3"/> 
+							<p>Genre</p>
+							<input  type="text" name="value4"/> 
+							<p>Location</p>
+							<input  type="text" name="value5"/> 
+							<br>
+							<br>
+							<input class="btn2"  type="submit" />
+
+						</form>
+						<br>
+		</div>
+	</body>	
 </html>
