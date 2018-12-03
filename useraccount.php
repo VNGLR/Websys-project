@@ -6,6 +6,38 @@
     	<link rel="stylesheet" type="text/css" href="resources/account.css"/>
     	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     	<script type="text/javascript" src="useraccount.js">	</script>
+    	<script > 
+    	
+
+			function change_ownership(id){
+				var elem = document.getElementById("title" + id);
+				console.log(elem);
+				var title = elem.innerHTML;
+				console.log("TITLE: " + title);
+				var new_owner = document.getElementById("search_input").value;
+				console.log("New owner: " + new_owner);
+				var new_location = document.getElementById("search_location").value;
+				console.log("New location: " + new_location);
+				$.ajax({
+		            type: "Post",
+		            url: "transfer_ownership.php",
+		            data: {"title": title, "new_owner": new_owner, "new_location": new_location},
+		           
+		            success: function(responseData, status){ //dynamically add buttons and information for each room to DOM
+		                alert("Ownership transferred successfully");
+		                var modal = document.getElementById('myModal');
+		                modal.style.display = "none";
+
+		            }
+    			});
+
+
+
+			}
+		
+
+
+    	</script>
 	</head>
 	<body>
 		<a class="btn btn-primary" href="#" role="button" id="booksbtn" onclick = "search_for_books();">Search</a>
@@ -92,7 +124,26 @@
 				              	for($y = 0; $y < count($all_qs[$x]); ++$y){
 				              		$total_line = "<th>";
 				              		
-				              		$total_line= $total_line.$all_qs[$x][$y];
+				              		if($y == 0){
+				              			$total_line= $total_line."<p id = title".$x.">".$all_qs[$x][$y]."</p><a class='btn btn-primary' href='#' role='button' id='booksbtnanother' onclick = transfer_ownership();> Transfer Ownership </a>";
+				              			//echo $total_line;
+				              			$total_line = $total_line."<div id='myModal' class='modal'>";
+
+													
+										$total_line = $total_line."<div class='modal-content'>";
+										$total_line = $total_line."<span class='close'>&times;</span>";
+										$total_line = $total_line."<p>Lend out book to: </p>";
+									$total_line = $total_line."<input type='text' class = 'round' placeholder='New Borrower' name='search' id='search_input'>";
+										$total_line = $total_line."<input type='text' class = 'round' placeholder='New Location' name='search' id = ";
+										$total_line = $total_line."'search_location'>";
+										$total_line = $total_line."<a class='btn btn-primary' href='#' role='button' id='booksbtnchange' onclick =  ";
+										$total_line = $total_line."'change_ownership("; 
+
+									    $total_line= $total_line.$x.");'> Transfer Ownership </a>";
+										$total_line = $total_line."</div></div>";
+				              		}else{
+				              			$total_line= $total_line.$all_qs[$x][$y];
+				              		}
 				              		$total_line = $total_line."</th>";
 				              		echo $total_line;
 				              	}
