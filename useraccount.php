@@ -48,13 +48,13 @@
 				var new_location = document.getElementById(search_loc_str).value;
 				console.log("New location: " + new_location);
 				// 
-				$.ajax({
+				$.ajax({ //send query to php which then sends query to server to see if we can change owner
 		            type: "Post",
 		            url: "transfer_ownership.php",
 		            data: {"title": title, "new_owner": new_owner, "new_location": new_location},
 		           	dataType: "json",
 		            success: function(responseData, status){ //dynamically add buttons and information for each room to DOM
-		            	if(responseData["Results"][0] === "Failure"){
+		            	if(responseData["Results"][0] === "Failure"){//transfer failed
 		            		alert("Invalid borrower");
 
 			                var id_str = 'myModal' + id;
@@ -62,8 +62,7 @@
 			                modal.style.display = "none";
 			                location.reload();
 		            	}else{
-			                alert("Ownership transferred successfully");
-
+			                alert("Ownership transferred successfully");//transfer sucseeded
 
 			                var id_str = 'myModal' + id;
 			                var modal = document.getElementById(id_str);
@@ -77,7 +76,7 @@
 
     	</script>
 	</head>
-	<body>
+	<body> <!-- HTML for most of page, search for books button and display your owned books and borrowed books -->
 		<a class="btn btn-primary" href="#" role="button" id="booksbtn" onclick = "search_for_books();">Search</a>
 		<div class =  "logo"> BOOK WORMS </div>
 		<div class = "everything" id = "currently_borrowed_b">
@@ -121,7 +120,6 @@ $root_password=DB_PASSWORD;
           $stmt->bindParam('uname', $_SESSION['username'], PDO::PARAM_STR);
           $stmt->execute();
           $row = $stmt->fetchALL();
-
 
             $curr_i = 0;
 
@@ -260,7 +258,7 @@ $root_password=DB_PASSWORD;
 
 				              	echo "<tr>";
 
-
+				              	//build table
 				              	for($y = 0; $y < count($all_qs[$x]); ++$y){
 				              		$total_line = "<th>";
 				              		
@@ -279,12 +277,11 @@ $root_password=DB_PASSWORD;
 				        die("DB ERROR: ". $e->getMessage());
 				    }
 			?>
-
 		</table>
 		
 		</div>
 
-		<div class="share_book">
+		<div class="share_book"> <!--If user wants to add another book -->
 				<h3 class = "input_add_item">Share your book </h3>
 					<form action="additem.php" method="post" id = "addmaterial">
 						<p class = "input_add_item">Title</p>
