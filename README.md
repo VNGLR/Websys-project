@@ -26,6 +26,9 @@ Files and what they do
 ------------------------
 
 
+Note: due to web000hosting we had to modify our file structure to meet security standards, so the structure is all flat as opposed to having
+resourse folders and so on as we did earlier.
+
 Welcome.php
 Starts session and redirects user to index or to logout as applicable
 
