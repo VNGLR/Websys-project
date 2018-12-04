@@ -16,8 +16,6 @@ body {
 }
 
 
-
-
 .everything{
   font-family: 'Oswald', sans-serif;
   padding:50px;
@@ -77,11 +75,6 @@ body {
     width: 80%;
     border-radius: 30px;
     border: 1px #000 solid;
-    /*padding: 5px 5px 5px 25px;*/
-    /*position: absolute;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*z-index: 5;*/
 }
 
 .corner {

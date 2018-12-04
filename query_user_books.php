@@ -11,7 +11,6 @@ $root_password=DB_PASSWORD;
 
 $results = [];
 $i = 0;
-$db="lab8websys"; 
 
     try {
         //if user logged in

@@ -7,11 +7,11 @@
     	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     	 <script type="text/javascript" src="home_screen.js"></script>
+    	 <!-- look at home_screen js for all functionality -->
 	</head>
 	<body>
 	<div id = "splash_primary">
 		<div class = "inner" id = "mybooks"> <a class="btn btn-primary" href="#" role="button" id="booksbtn">My Books</a> </div>
-		<!-- <div class = "inner" id = "title"> <p class = "splash_title"> BookShare </p> </div> -->
 		<div class = "inner" id = "signup"><a class="btn btn-primary" href="#" role="button" id="signup">Sign Up or Log In</a> </div>
 	</div>	
 
@@ -29,6 +29,8 @@
 	
 
 	<!-- The form -->
+	<!-- nearly all information in here is used by home_screen JS, of which a lot of this is redirected to php calls
+	Below is fairly straight forward form, used to gather the information on the book the user wants to look for -->
 	<form class="example" method = "post">
 	  <input type="text" class = "round" placeholder="Search Library" name="search" id = "search_input">
 	  <button type="submit" onclick = "retrieve_params(); return false;""><i class="fa fa-search"></i></button>
@@ -77,7 +79,5 @@
 			    </div>
 			</div> -->
 			
-		
-		
 	</body>
 </html>

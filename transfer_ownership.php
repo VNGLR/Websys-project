@@ -9,14 +9,15 @@ $root_password=DB_PASSWORD;
 
 
     try {
-        //is user logged in?
+        //is user logged in
         if(isset($_SESSION["username"] ) && isset($_POST["new_owner"]) ){
 
-
+          //read all relevant information
           $title = $_POST["title"];
           $new_owner = $_POST["new_owner"];
           $new_location = $_POST["new_location"];
-          
+
+          //build PDO
           $dbh = new PDO("mysql:host=$host", $root, $root_password);
 
           $query_string = '%'.$query_string.'%';
@@ -42,10 +43,6 @@ $root_password=DB_PASSWORD;
                 echo json_encode($final_arrs);//output results
             }
             else{
-                
-            
-              // echo $success;
-
 
               //prepare change in database
               $stmt = $dbexec->prepare(" UPDATE books SET location = :location WHERE title =
@@ -57,12 +54,11 @@ $root_password=DB_PASSWORD;
               $stmt->execute();//ececute update in location
 
 
-              // $row = $stmt->fetchALL();
 
               $count = $stmt->rowCount();
 
               if($count =='0'){
-                  $all_qs = ["Failure"];//all queries
+                  $all_qs = ["Failure"];
 
 
                   $final_arrs["Results"] = $all_qs;

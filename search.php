@@ -52,9 +52,6 @@ session_start();
 			   </tr>
 			";
 
-
-
-          // $arr = $_GET["Results"];
 		  $curr_inner_tuple = 0;
 		  $total_line = "";
 		  foreach ($_GET as $key => $value) { //build the search results
@@ -73,9 +70,6 @@ session_start();
 
 		  	}
 		  		
-		  		// echo "<th>";
-
-		  		// echo $value;
 
 
 		  		
@@ -90,7 +84,6 @@ session_start();
 		  		$curr_inner_tuple = 0;
 		  	}
 
-		  	
 		  }
 
 		  echo "</table>";//finish outputting					

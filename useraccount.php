@@ -101,7 +101,6 @@ $root_password=DB_PASSWORD;
 
 //session_start();
 
-
     try {
 
         if(isset($_SESSION['username'] ) ){
@@ -141,7 +140,6 @@ $root_password=DB_PASSWORD;
               	  $curr_i++;
 	          }
                 
-            
 	          //build tree 
               for($x = 0; $x < count($all_qs); ++$x){
 

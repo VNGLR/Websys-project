@@ -28,17 +28,9 @@ function transfer_ownership(id){
 	        modal.style.display = "none";
 	    }
 	}
-
-  
 }
 
-
-
 window.onload = function(){
-
-
-
-
 }
 
 $("#booksbtn").onclick = function(){

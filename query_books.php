@@ -11,8 +11,6 @@ $root_password=DB_PASSWORD;
 
 $results = [];
 $i = 0;
-$db="lab8websys"; 
-
     try {
 
         if(isset($_POST['param_type'] ) && isset($_POST['query_string'])){
